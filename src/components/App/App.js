@@ -17,17 +17,19 @@ function App() {
       }
   ]);
   const [playlistName, setPlaylistName] = useState("Playlist name");
-  const [playlistTracks, setPlaylistTracks] = useState([    {id:1,
-    artist: "Elton John",
-    title: "Crocodile rock",
-    album: "Greatest hits"
-    },
-    {id:2,
-      artist: "Elton",
-      title: "Crocodile",
-      album: "Greatest hits"
-      }]);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
+  function addTrack (newTrack) {
+    if (!playlistTracks.some((track) => newTrack.id === track.id)) {
+      setPlaylistTracks((prevTracks) => [...prevTracks, newTrack]);
+      }
+    }
+
+  function removeTrack (oldTrack) {
+    setPlaylistTracks((prevTracks) => { 
+      return prevTracks.filter((track) => track.id !== oldTrack.id)
+    })
+  }
 
   return (
     <div className="App">
@@ -35,10 +37,12 @@ function App() {
         <h1>JAMMMING</h1>
         <SearchResults 
           searchResults = {searchResults}
+          addTrack ={addTrack}
         />
         <Playlist
           playlistName={playlistName}
           playlistTracks={playlistTracks}
+          removeTrack={removeTrack}
         />
       </header>
     </div>
