@@ -1,8 +1,11 @@
+import Track from '../Track/Track'
 
-
-function SearchResults() {
+function SearchResults(props) {
   return (
-    <div>SearchResults</div>
+    <div>
+      <h2>Search Results</h2>
+      <Track tracklist={props.searchResults}/>
+    </div>
   )
 }
 
