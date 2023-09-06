@@ -1,8 +1,14 @@
+import Tracklist from "../Tracklist/Tracklist"
 
-
-function Playlist() {
+function Playlist(props) {
   return (
-    <div>Playlist</div>
+    <div>
+      <h2>Playlist</h2>
+      <Tracklist
+        tracks={props.playlistTracks}
+        removeTrack={props.removeTrack}
+      />
+    </div>
   )
 }
 

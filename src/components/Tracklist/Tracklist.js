@@ -1,8 +1,19 @@
+import Track from "../Track/Track"
 
-
-function Tracklist() {
+function Tracklist(props) {
   return (
-    <div>Tracklist</div>
+    <div>
+      {props.tracks.map((track) => {
+        return (
+          <Track
+          key={track.id}
+          track={track}
+          addTrack={props.addTrack}
+          removeTrack={props.removeTrack}
+          />
+        )  
+      })}
+    </div>
   )
 }
 
