@@ -2,19 +2,11 @@
 
 function Track(props) {
 
-  
-
   return (
     <div>
-      {props.tracklist.map((track) => {
-        return (
-          <div key={track.id}>
-            {track.title}
-            {track.artist}
-            {track.album}
-          </div>
-        )
-      })}
+    {props.track.title}
+    {props.track.artist}
+    {props.track.album}
     </div>
   )
 }
