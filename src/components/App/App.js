@@ -35,6 +35,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>JAMMMING</h1>
+      </header>
         <SearchResults 
           searchResults = {searchResults}
           addTrack ={addTrack}
@@ -44,7 +45,6 @@ function App() {
           playlistTracks={playlistTracks}
           removeTrack={removeTrack}
         />
-      </header>
     </div>
   );
 }

@@ -1,8 +1,9 @@
-import Tracklist from "../Tracklist/Tracklist"
+import Tracklist from "../Tracklist/Tracklist";
+import '../Playlist/Playlist.css';
 
 function Playlist(props) {
   return (
-    <div>
+    <div className="playlist">
       <h2>Playlist</h2>
       <Tracklist
         tracks={props.playlistTracks}
