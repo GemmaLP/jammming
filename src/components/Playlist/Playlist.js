@@ -4,11 +4,13 @@ import '../Playlist/Playlist.css';
 function Playlist(props) {
   return (
     <div className="playlist">
-      <h2>Playlist</h2>
+      <h2>{props.playlistName}</h2>
+      <input value={props.playlistName} type="text" onChange={props.changePlaylistName}/>
       <Tracklist
         tracks={props.playlistTracks}
         removeTrack={props.removeTrack}
       />
+      <button>Add playlist to Spotify</button>
     </div>
   )
 }

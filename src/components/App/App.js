@@ -2,6 +2,7 @@ import '../App/App.css';
 import { useState } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import SearchBar from '../SearchBar/SearchBar';
 
 function App() {
   const [searchResults, setSearchResults] = useState([
@@ -31,11 +32,17 @@ function App() {
     })
   }
 
+  function changePlaylistName (e) {
+    e.preventDefault();
+    setPlaylistName(e.target.value);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>JAMMMING</h1>
       </header>
+        <SearchBar />
         <SearchResults 
           searchResults = {searchResults}
           addTrack ={addTrack}
@@ -44,6 +51,7 @@ function App() {
           playlistName={playlistName}
           playlistTracks={playlistTracks}
           removeTrack={removeTrack}
+          changePlaylistName={changePlaylistName}
         />
     </div>
   );

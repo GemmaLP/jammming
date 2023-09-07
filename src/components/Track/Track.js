@@ -9,7 +9,7 @@ function Track(props) {
         <hr></hr>
         <li>{props.track.artist} || {props.track.album}</li>
       </div>
-      <button className="addTrack"  onClick={() => props.addTrack ?
+      <button className="trackButton"  onClick={() => props.addTrack ?
           props.addTrack(props.track) : props.removeTrack(props.track)}>
           {props.addTrack ? '+': '-'}</button>
     </div>
