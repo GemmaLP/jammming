@@ -30,10 +30,10 @@ hr {
     margin: 0;
 }
 
-.trackButton {
+button.trackButton {
     height: fit-content;
     margin: auto 15px;
     font-size: 16px;
     font-size: 1.2rem;
-    border-radius: 100%;
+    border-radius: 50%;
 }

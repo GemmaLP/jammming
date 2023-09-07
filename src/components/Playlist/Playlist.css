@@ -24,7 +24,7 @@
     width: 70%;
 }
 
-.playlist button {
+button.playlistButton {
     margin: 10px auto;
     border-radius: 10px;
     padding: 5px;

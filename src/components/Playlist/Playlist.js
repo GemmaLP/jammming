@@ -10,7 +10,7 @@ function Playlist(props) {
         tracks={props.playlistTracks}
         removeTrack={props.removeTrack}
       />
-      <button>Add playlist to Spotify</button>
+      <button className="playlistButton">Add playlist to Spotify</button>
     </div>
   )
 }
