@@ -3,20 +3,10 @@ import { useState } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import SearchBar from '../SearchBar/SearchBar';
+import Spotify from '../../util/Spotify';
 
 function App() {
-  const [searchResults, setSearchResults] = useState([
-    {id:1,
-    artist: "Elton John",
-    title: "Crocodile rock",
-    album: "Greatest hits"
-    },
-    {id:2,
-      artist: "Elton",
-      title: "Crocodile",
-      album: "Greatest hits"
-      }
-  ]);
+  const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("Playlist name");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
@@ -37,21 +27,36 @@ function App() {
     setPlaylistName(e.target.value);
   }
 
+  function savePlaylist () {
+    const trackUris = playlistTracks.map((track) => track.uri);
+    const name = playlistName;
+    Spotify.savePlaylist(name, trackUris).then(()=> {
+      setPlaylistName("new playlist");
+      setPlaylistTracks([]);
+      setSearchResults([]);
+    })
+  }
+
+  function search (term) {
+    Spotify.search(term).then(result => setSearchResults(result))
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>JAMMMING</h1>
       </header>
-        <SearchBar />
+        <SearchBar onSearch={search}/>
         <SearchResults 
           searchResults = {searchResults}
-          addTrack ={addTrack}
+          onAdd ={addTrack}
         />
         <Playlist
           playlistName={playlistName}
           playlistTracks={playlistTracks}
-          removeTrack={removeTrack}
-          changePlaylistName={changePlaylistName}
+          onRemove={removeTrack}
+          onNameChange={changePlaylistName}
+          onSave={savePlaylist}
         />
     </div>
   );

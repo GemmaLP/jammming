@@ -5,12 +5,12 @@ function Playlist(props) {
   return (
     <div className="playlist">
       <h2>{props.playlistName}</h2>
-      <input value={props.playlistName} type="text" onChange={props.changePlaylistName}/>
+      <input value={props.playlistName} type="text" onChange={props.onNameChange}/>
       <Tracklist
         tracks={props.playlistTracks}
-        removeTrack={props.removeTrack}
+        onRemove={props.onRemove}
       />
-      <button className="playlistButton">Add playlist to Spotify</button>
+      <button className="playlistButton" onClick={props.onSave}>Save playlist to Spotify</button>
     </div>
   )
 }
