@@ -6,9 +6,10 @@
      #741B80 100%
      );
     margin: 0 auto;
-    border-radius: 30px;
+    border-radius: 20px;
     padding: 10px;
     margin: 20px;
+    min-height: 300px;
     width: 40%;
     align-items: center;
     flex-direction: column;
@@ -16,19 +17,31 @@
 }
 
 .playlist input {
+    text-transform: uppercase;
+    background: transparent;
     margin: 10px auto;
+    border: 0;
+    outline: 0;
     padding: 5px;
-    font-size: 16px;
-    font-size: 1rem;
-    border-radius: 10px;
+    text-align: center;
+    font-family: system-ui, sans-serif;
+    font-size: 24px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 20px;
     width: 70%;
 }
 
 button.playlistButton {
+    text-transform: uppercase;
     margin: 10px auto;
-    border-radius: 10px;
-    padding: 5px;
-    font-size: 14.4px;
-    font-size: 0.9rem;
-    width: 60%;
+    border-radius: 30px;
+    border: #8a99a6 2px solid;
+    padding: 12px;
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 200px;
+    color: #f4f4f4;
+    background-color: #425666;
 }

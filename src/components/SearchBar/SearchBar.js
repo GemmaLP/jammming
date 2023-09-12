@@ -5,19 +5,19 @@ function SearchBar(props) {
 
   const [term, setTerm] = useState("");
 
-  const handleTermChange = useCallback((event) => {
-    setTerm(event.target.value);
+  const handleTermChange = useCallback((e) => {
+    e.preventDefault();
+    setTerm(e.target.value);
   }, []);
 
-  const search = useCallback(() => {
-      props.onSearch(term);
-    }, [props, term]);
+  function search () {
+    props.onSearch(term);
+  }
 
   return (
     <div className="searchBar">
-      <h2>Search for songs</h2>
-      <input placeholder="Search by song title"onChange={handleTermChange}/>
-      <button className="searchBarButton" onClick={search}>Search</button>
+      <input placeholder="Search by song title"onChange={handleTermChange} />
+      <button className="searchBarButton" onClick={search}>SEARCH</button>
     </div>
   )
 }
