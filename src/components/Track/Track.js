@@ -1,15 +1,17 @@
-
+import '../Track/Track.css'
 
 function Track(props) {
 
   return (
-    <div>
-    {props.track.title}
-    {props.track.artist}
-    {props.track.album}
-    <button className="addTrack"  onClick={() => props.addTrack ?
-         props.addTrack(props.track) : props.removeTrack(props.track)}>
-        {props.addTrack ? '+': '-'}</button>
+    <div className='track'>
+      <div className='trackInfo'>
+        <h3>{props.track.title}</h3>
+        <li>{props.track.artist} || {props.track.album}</li>
+      </div>
+      {/* set button to add or remove track dependent on props passed in */}
+      <button className="trackButton"  onClick={() => props.onAdd ?
+          props.onAdd(props.track) : props.onRemove(props.track)}>
+          {props.onAdd ? '+': '-'}</button>
     </div>
   )
 }

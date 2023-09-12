@@ -1,13 +1,15 @@
-import Tracklist from "../Tracklist/Tracklist"
+import Tracklist from "../Tracklist/Tracklist";
+import '../Playlist/Playlist.css';
 
 function Playlist(props) {
   return (
-    <div>
-      <h2>Playlist</h2>
+    <div className="playlist">
+      <input value={props.playlistName} type="text" onChange={props.onNameChange}/>
       <Tracklist
         tracks={props.playlistTracks}
-        removeTrack={props.removeTrack}
+        onRemove={props.onRemove}
       />
+      <button className="playlistButton" onClick={props.onSave}>Save playlist</button>
     </div>
   )
 }

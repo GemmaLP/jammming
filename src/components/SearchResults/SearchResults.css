@@ -1,0 +1,21 @@
+.searchResults {
+    display: inline-flex;
+    background-color: #8D54BF;
+    background-image: linear-gradient(
+     #E736FF 30%,
+     #741B80 100%
+     );
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 20px;
+    width: 40%;
+    align-items: center;
+    flex-direction: column;
+    opacity: 80%;
+    min-height: 300px
+}
+
+h2 {
+    text-transform: uppercase;
+}

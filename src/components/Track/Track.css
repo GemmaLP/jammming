@@ -1,0 +1,36 @@
+.track {
+    display: flex;
+    margin: 5px;
+    padding: 5px;
+    justify-content: center;
+    color: #f4f4f4;
+    background-color: #2F2C42;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.trackInfo {
+    width: 90%;
+}
+
+.trackInfo h3 {
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.trackInfo li {
+    list-style: none;
+    padding: 5px 0;
+}
+
+button.trackButton {
+    height: fit-content;
+    margin: auto 15px;
+    font-size: 28.8px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px #2F2C42;
+    color: #f4f4f4;
+}

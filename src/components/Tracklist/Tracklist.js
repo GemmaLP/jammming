@@ -8,8 +8,8 @@ function Tracklist(props) {
           <Track
           key={track.id}
           track={track}
-          addTrack={props.addTrack}
-          removeTrack={props.removeTrack}
+          onAdd={props.onAdd}
+          onRemove={props.onRemove}
           />
         )  
       })}
