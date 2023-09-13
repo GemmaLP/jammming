@@ -1,9 +1,16 @@
 import '../SearchBar/SearchBar.css'
-import { useCallback, useState} from 'react';
+import { useCallback, useEffect, useState} from 'react';
 
 function SearchBar(props) {
 
-  const [term, setTerm] = useState("");
+  const storedTerm = window.sessionStorage.getItem('term' || "")
+  const [term, setTerm] = useState(storedTerm);
+  const [searchType, setSearchType] = useState("track");
+
+ //set term in session storage to reinstate on page refresh
+  useEffect(() => {
+    window.sessionStorage.setItem('term', term);
+  }, [term]);
 
   const handleTermChange = useCallback((e) => {
     e.preventDefault();
@@ -16,7 +23,7 @@ function SearchBar(props) {
 
   return (
     <div className="searchBar">
-      <input placeholder="Search by song title"onChange={handleTermChange} />
+      <input value={term} onChange={handleTermChange} />
       <button className="searchBarButton" onClick={search}>SEARCH</button>
     </div>
   )
