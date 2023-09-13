@@ -17,12 +17,27 @@ function SearchBar(props) {
     setTerm(e.target.value);
   }, []);
 
+  const handleSearchTypeChange = (e) => {
+    e.preventDefault();
+    setSearchType(e.target.value);
+    console.log(searchType)
+  };
+
+
   function search () {
-    props.onSearch(term);
+    props.onSearch(term,searchType);
   }
 
   return (
     <div className="searchBar">
+      <label>
+        What do you want to search by?
+        <select value={searchType} onChange={handleSearchTypeChange}>
+          <option value="track">Song title</option>
+          <option value="artist">Artist name</option>
+          <option value="album">Album title</option>
+        </select>
+      </label>      
       <input value={term} onChange={handleTermChange} />
       <button className="searchBarButton" onClick={search}>SEARCH</button>
     </div>

@@ -6,7 +6,8 @@ function Track(props) {
     <div className='track'>
       <div className='trackInfo'>
         <h3>{props.track.title}</h3>
-        <li>{props.track.artist} || {props.track.album}</li>
+        <li>{props.track.artist}</li>
+        <li>{props.track.album}</li>
       </div>
       {/* set button to add or remove track dependent on props passed in */}
       <button className="trackButton"  onClick={() => props.onAdd ?

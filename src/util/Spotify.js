@@ -25,26 +25,71 @@ const Spotify = {
     },
 
 
-    search(term) {
+    search(term, searchType) {
         const accessToken = Spotify.getAccessToken();
-        return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
+        console.log(`https://api.spotify.com/v1/search?&q=${term}&type=${searchType}`)
+        return fetch(`https://api.spotify.com/v1/search?&q=${term}&type=${searchType}`, {
             headers: {
             Authorization: `Bearer ${accessToken}`
             }
         }).then(response => {
             return response.json();
         }).then(jsonResponse => {
-            if (!jsonResponse.tracks) {
+
+          if (jsonResponse.tracks) {
+              if (!jsonResponse.tracks) {
+              return [];
+              }
+              return jsonResponse.tracks.items.map(track => ({
+              id: track.id,
+              title: track.name,
+              artist: track.artists[0].name,
+              album: track.album.name,
+              uri: track.uri
+              }));
+          }
+
+          else if (jsonResponse.artists) {
+              if (!jsonResponse.artists) {
+              return [];
+              }
+
+              const artist = jsonResponse.artists.items[0].name
+              const accessToken = Spotify.getAccessToken();
+              return fetch (`https://api.spotify.com/v1/search?type=track&q=artist:${artist}`, {
+                headers: {
+                Authorization: `Bearer ${accessToken}`
+                },
+                params: {
+                limit: 10,
+                }
+              }).then(response => {
+                return response.json();
+            }).then(jsonResponse => {
+              return jsonResponse.tracks.items.map(track => ({
+                id: track.id,
+                title: track.name,
+                artist: track.artists[0].name,
+                album: track.album.name,
+                uri: track.uri
+                }))
+            })
+          }
+
+         else { 
+            if (!jsonResponse.albums) {
             return [];
             }
-            return jsonResponse.tracks.items.map(track => ({
+            return jsonResponse.albums.items.map(track => ({
             id: track.id,
-            title: track.name,
             artist: track.artists[0].name,
-            album: track.album.name,
-            uri: track.uri
+            album: track.name
+    
             }));
-        });
+        }
+        }
+
+      );
     },
 
     savePlaylist(name, trackUris) {

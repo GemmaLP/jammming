@@ -38,8 +38,8 @@ function App() {
     })
   }
 
-  function search (term) {
-    Spotify.search(term).then(result => setSearchResults(result))
+  function search (term, searchType) {
+    Spotify.search(term, searchType).then(result => setSearchResults(result))
   }
 
   return (

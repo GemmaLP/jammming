@@ -1,6 +1,7 @@
 .searchBar {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 0 auto;
     padding: 10px;
     color: #f4f4f4;
@@ -35,4 +36,30 @@ button.searchBarButton {
     color: #f4f4f4;
     background-color: #425666;
     opacity: 80%;
+}
+
+label {
+    display: inline-flex;
+    font-size: 16px;
+    font-size: 1rem;
+    justify-content: space-between;
+    margin: 10px;
+    align-items: center;
+    background-color: #425666;
+    padding-left: 20px;
+    width: 400px;
+    border-radius: 30px;
+    border: #8a99a6 2px solid;
+    opacity: 80%;
+}
+
+select {
+    background-color: #2F2C42;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 14.4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    min-width: 110px;
+    color: #f4f4f4
 }
